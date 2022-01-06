@@ -1,0 +1,50 @@
+== VT100 firmware disassembly
+
+This repository contains an annotated disassembly of the VT100
+firmware ROM. VT100 is a video terminal introduced by DEC in 1978.
+
+link:vt100.asm[The disassembly] can be assembled with an assembler
+such as `asmx-8085` or `vasm`. That will generate a binary file
+identical to the original ROM. See `Makefile` for an example.
+
+
+== Status
+
+* The annotation is incomplete.
+
+* In OK shape:
+  - Parsing of received UART characters
+  - Processing of control characters, control sequences and escape
+  sequences
+  - Keyboard input processing
+
+* Needs more attention:
+  - UART RX/TX routines (SILO) and flow control
+  - Video scrolling
+  - SET-UP mode
+  - Machine self-tests
+
+* Pull requests are welcome.
+
+* Have fun. :-)
+
+== Resources
+
+These resources have been a great help when annotating the code:
+
+* https://vt100.net/manx/details/1,4071[VT100 Series Video Terminal Technical Manual]
+  - Chapter 4 contains an in-depth description of the hardware and an overview
+    of the firmware.
+
+* VT100 schematics
+  - Provides additional information on how the CPU is connected with the peripherals.
+
+* https://archive.org/details/bitsavers_intel80859mblyLanguageProgrammingManualNov78_5034151[
+  Intel 8080/8085 assembly language programming manual]
+
+* https://github.com/larsbrinkhoff/terminal-simulator[
+  Simulation of the VT52 and VT100 hardware]
+  - A nice tool for learning about the VT100 user interface when you don't have access to the machine.
+
+* https://github.com/endofexclusive/dis8080[Intel 8080 instruction disassembler]
+
